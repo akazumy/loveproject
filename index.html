@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Este es para mi Varchhu</title>
+
+<style type="text/css">
+@font-face {
+    font-family: digit;
+    src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv">
+    <div id="content">
+        <div id="code">
+            <span class="comments">/**</span><br />
+            <span class="space"/><span class="comments">*EL CODIGO DEL AMOR </span><br />
+            <span class="space"/><span class="comments">*/</span><br />
+            ¡Hola Sarita !<br />
+            ¿Recuerdas el día que nos conocimos?<br />
+            <span class="comments">// Un martes 16 hace 2 meses Jugando league of legends </span><br />
+            Desde ese día comenzó una chispa;<br />
+            <span class="comments">// Tu cara, tu voz, tus palabras.</span><br />
+            Todo tu ser quedó impreso en mi corazón;<br />
+            A medida que pasó el tiempo;<br />
+            El vínculo se hizo más y más fuerte;<br />
+            El viaje de la infatuación al amor;<br />
+            Hemos recorrido un largo camino juntos;<br />
+            Ha habido peleas;<br />
+            <span class="comments">// Y estoy seguro de que habrá más.</span><br />
+            Pero nuestro vínculo siempre se hará más fuerte;<br />
+            <br>
+            <br>
+            Todo lo que quiero decir es:<br />
+            Cariño, te amaré para siempre;<br />
+            <br>
+            <br>
+            Ahora, si quieres abrazarme, puedes tocar el corazón de abajo<br />
+            <br>
+            <span id="heartspan">
+            <a href="image.jpg"><i class="fas fa-heart" id="icon"></i></a>
+            </span>
+        </div>
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
+            <div id="words">
+                <div id="messages">
+                 Cuenta Regresiva del tiempo que falta para estar a tu lado
+                    <div id="elapseClock"></div>
+                </div>
+                <div id="loveu">
+                    TE AMA MUCHO<br/>
+                    CON AMOR JESUS<br/>
+                    <div class="signature"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var juntos = new Date();
+juntos.setFullYear(2024, 11, 20); // Diciembre es el mes 11 en JavaScript (meses empiezan desde 0)
+juntos.setHours(16);
+juntos.setMinutes(30);
+juntos.setSeconds(0);
+juntos.setMilliseconds(0);
+
+function timeElapse(targetDate) {
+    var current = new Date();
+    var timeDifference = targetDate - current;
+
+    var seconds = Math.floor(timeDifference / 1000);
+    var minutes = Math.floor(seconds / 60);
+    var hours = Math.floor(minutes / 60);
+    var days = Math.floor(hours / 24);
+
+    hours %= 24;
+    minutes %= 60;
+    seconds %= 60;
+
+    document.getElementById("elapseClock").innerHTML = days + " días " + hours + " horas " + minutes + " minutos " + seconds + " segundos ";
+}
+
+
+if (!document.createElement('canvas').getContext) {
+    var msg = document.createElement("div");
+    msg.id = "errorMsg";
+    msg.innerHTML = "¡Tu navegador no soporta HTML5!<br/>Se recomienda usar Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+    document.body.appendChild(msg);
+    $("#code").css("display", "none");
+    $("#copyright").css("position", "absolute");
+    $("#copyright").css("bottom", "10px");
+    document.execCommand("stop");
+} else {
+    setTimeout(function () {
+        startHeartAnimation();
+    }, 5000);
+
+    timeElapse(juntos);
+    setInterval(function () {
+        timeElapse(juntos);
+    }, 500);
+
+    adjustCodePosition();
+    $("#code").typewriter();
+}
+</script>
+</body>
+</html>
