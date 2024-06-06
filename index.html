@@ -60,7 +60,7 @@
 				</div>
 				<div id="loveu">
 					TE QUIERO MUCHO ATT:JESUS<br/>
-					<div class="signature">-</div>
+					<div class="signature">- RITVIK</div>
 				</div>
 			</div>
 		</div>
@@ -89,7 +89,7 @@ if (!document.createElement('canvas').getContext) {
 	updateTime();
 	setInterval(function () {
 		updateTime();
-	}, 500);
+	}, 1000);
 
 	adjustCodePosition();
 	$("#code").typewriter();
@@ -98,9 +98,15 @@ if (!document.createElement('canvas').getContext) {
 function updateTime() {
 	var now = new Date();
 	var timeDiff = targetDate.getTime() - now.getTime();
-	var days = Math.max(Math.floor(timeDiff / (1000 * 3600 * 24)), 0); // Asegurarse de que el tiempo sea positivo o 0
 
-	$("#elapseClock").html(days + " días");
+	var days = Math.max(Math.floor(timeDiff / (1000 * 3600 * 24)), 0);
+	var hours = Math.max(Math.floor((timeDiff % (1000 * 3600 * 24)) / (1000 * 3600)), 0);
+	var minutes = Math.max(Math.floor((timeDiff % (1000 * 3600)) / (1000 * 60)), 0);
+	var seconds = Math.max(Math.floor((timeDiff % (1000 * 60)) / 1000), 0);
+
+	var formattedTime = days + " días, " + hours + " horas, " + minutes + " minutos, " + seconds + " segundos";
+
+	$("#elapseClock").html(formattedTime);
 }
 </script>
 </body>
