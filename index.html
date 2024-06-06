@@ -60,7 +60,7 @@
 				</div>
 				<div id="loveu">
 					TE QUIERO MUCHO ATT:JESUS<br/>
-					<div class="signature">- RITVIK</div>
+					<div class="signature">-</div>
 				</div>
 			</div>
 		</div>
@@ -70,7 +70,6 @@
 <script type="text/javascript">
 var offsetX = $("#loveHeart").width() / 2;
 var offsetY = $("#loveHeart").height() / 2 - 55;
-var together = new Date();
 var targetDate = new Date("December 20, 2024");
 
 if (!document.createElement('canvas').getContext) {
@@ -99,7 +98,7 @@ if (!document.createElement('canvas').getContext) {
 function updateTime() {
 	var now = new Date();
 	var timeDiff = targetDate.getTime() - now.getTime();
-	var days = Math.floor(timeDiff / (1000 * 3600 * 24));
+	var days = Math.max(Math.floor(timeDiff / (1000 * 3600 * 24)), 0); // Asegurarse de que el tiempo sea positivo o 0
 
 	$("#elapseClock").html(days + " días");
 }
