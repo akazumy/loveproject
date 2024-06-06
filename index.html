@@ -104,7 +104,12 @@ function updateTime() {
 	var minutes = Math.max(Math.floor((timeDiff % (1000 * 3600)) / (1000 * 60)), 0);
 	var seconds = Math.max(Math.floor((timeDiff % (1000 * 60)) / 1000), 0);
 
-	var formattedTime = days + " días, " + hours + " horas, " + minutes + " minutos, " + seconds + " segundos";
+	// Agregar un 0 inicial si es menor que 10 para formatear correctamente el tiempo
+	hours = ("0" + hours).slice(-2);
+	minutes = ("0" + minutes).slice(-2);
+	seconds = ("0" + seconds).slice(-2);
+
+	var formattedTime = days + " días, " + hours + ":" + minutes + ":" + seconds;
 
 	$("#elapseClock").html(formattedTime);
 }
