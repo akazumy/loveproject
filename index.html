@@ -71,11 +71,7 @@
 var offsetX = $("#loveHeart").width() / 2;
 var offsetY = $("#loveHeart").height() / 2 - 55;
 var together = new Date();
-together.setFullYear(2024, 11, 20); // Año, mes (0-11), día
-together.setHours(16);
-together.setMinutes(30);
-together.setSeconds(0);
-together.setMilliseconds(0);
+var targetDate = new Date("December 20, 2024");
 
 if (!document.createElement('canvas').getContext) {
 	var msg = document.createElement("div");
@@ -91,13 +87,21 @@ if (!document.createElement('canvas').getContext) {
 		startHeartAnimation();
 	}, 5000);
 
-	timeElapse(together);
+	updateTime();
 	setInterval(function () {
-		timeElapse(together);
+		updateTime();
 	}, 500);
 
 	adjustCodePosition();
 	$("#code").typewriter();
+}
+
+function updateTime() {
+	var now = new Date();
+	var timeDiff = targetDate.getTime() - now.getTime();
+	var days = Math.floor(timeDiff / (1000 * 3600 * 24));
+
+	$("#elapseClock").html(days + " días");
 }
 </script>
 </body>
